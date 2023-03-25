@@ -8,7 +8,7 @@
     "debug": "tsc && npm run start",
     "build": "cross-env nammatham_env=build tsx src/startup.ts && tsc",
     "build:production": "run-s build && npm prune --production",
-    "deploy:dev": "npm run build:production && func azure functionapp publish nammatham-demo",
+    "deploy": "npm run build:production && func azure functionapp publish nammatham-demo",
     "serve:watch": "nodemon --watch src --ext ts --exec 'npm run serve'",
     "build:watch": "nodemon --watch src --ext ts --delay 0.5 --exec 'npm run build'",
     "start:watch": "nodemon --watch dist --delay 0.3 --exec  'npm start'",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@type-challenges/utils": "^0.1.1",
+    "@types/node": "^18.15.8",
     "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
     "tsx": "latest",
