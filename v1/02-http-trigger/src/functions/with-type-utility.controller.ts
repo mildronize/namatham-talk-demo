@@ -3,7 +3,7 @@ import { binding, BaseFunction, functionName } from 'nammatham';
 import { Service } from './services';
 
 const bindings = [
-  binding.httpTrigger({ name: 'req' as const }), // make string to literal type
+  binding.httpTrigger({ name: 'req' as const}), // make string to literal type
   binding.http({ name: 'res' as const }), // make string to literal type
 ] as const;
 
@@ -15,6 +15,6 @@ export class WithTypeUtilityFunction extends BaseFunction<typeof bindings> {
 
   public override execute() {
     const { name } = this.req.query;
-    this.res.send(`hello WithTypeUtility with ${name} ${this.service.getData()}`);
+    this.res.send(`hello Nammatham with ${name} ${this.service.getData()}`);
   }
 }
