@@ -9,7 +9,6 @@ const bindings = [
 
 export class MyFunction extends BaseFunction<typeof bindings> {
   override execute() {
-    const { req, res } = this.context.bindings;
-    this.context.req.body;
+    const body = this.context.req.body;
   }
 }

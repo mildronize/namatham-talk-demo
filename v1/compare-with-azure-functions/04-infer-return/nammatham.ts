@@ -2,14 +2,16 @@
 import { BaseFunction, binding } from 'nammatham';
 
 const bindings = [
-  // binding.timerTrigger({ name: 'myTimer' as const, schedule: '0 */5 * * * *' }),
   binding.httpTrigger({ name: 'req' as const }),
   binding.http({ name: 'res' as const }),
 ] as const;
 
 export class MyFunction extends BaseFunction<typeof bindings> {
-  override execute() {
-    const { req, res } = this.context.bindings;
-    this.context.req.body;
+  override execute(): binding.inferReturn<typeof bindings> {
+    return {
+      res: {
+        body: 'OK',
+      },
+    };
   }
 }
